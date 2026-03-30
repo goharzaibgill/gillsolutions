@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | Gill Solution</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--text-light);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .item-img {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+        }
+
+        .item-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(10, 15, 30, 0.8), transparent);
+            pointer-events: none;
+        }
+
+        .item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover .item-img img {
+            transform: scale(1.15);
+        }
+
+        .item-content {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .item-content h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-dark);
+            margin: 0;
+            background: linear-gradient(to right, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .item-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .item-footer {
+            margin-top: auto;
+            padding-top: 10px;
+        }
+
+        .view-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 25px;
+            background: var(--gradient);
+            color: white !important;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .view-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .portfolio-overlay {
+            display: none; /* Removed in favor of content-below layout */
+        }
+
+        /* Future Projects Section */
+        .future-projects {
+            padding: 100px 0;
+            background: rgba(10, 15, 30, 0.5);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .future-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: left;
+            transition: all 0.4s ease;
+            filter: grayscale(0.8);
+            opacity: 0.5;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .future-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            opacity: 0.8;
+            filter: grayscale(0.5);
+        }
+
+        .future-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .future-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .badge-coming-soon {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--secondary);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes float-icon {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .app-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(0, 247, 255, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: float-icon 5s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0.6;
+        }
+
+        .future-card:nth-child(even) .app-icon {
+            animation-delay: 1.5s;
+        }
+
+        .future-card:hover .app-icon {
+            background: var(--gradient);
+            color: white;
+            transform: scale(1.15) rotate(8deg);
+            border-color: transparent;
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">GILL<span class="logo-accent">SOLUTION</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div id="particles-js"></div>
+        <div class="container hero-content">
+            <h1 class="fade-in title-reveal">Premium Projects</h1>
+            <p class="fade-in">A curated selection of our high-end digital solutions and web developments.</p>
+        </div>
+    </header>
+
+    <section class="portfolio">
+        <div class="container">
+            <div class="portfolio-filters fade-in">
+                <button class="filter-btn active">All Projects</button>
+                <button class="filter-btn">Web Development</button>
+                <button class="filter-btn">UI/UX Design</button>
+            </div>
+            
+            <div class="portfolio-grid stagger-child">
+                <div class="portfolio-item" data-category="web">
+                    <div class="item-img">
+                        <img src="Screenshot 2026-03-25 111342.png" alt="Restaurant Website">
+                    </div>
+                    <div class="item-content">
+                        <h3>1. Restaurant Website</h3>
+                        <p>A fully responsive restaurant website featuring menu showcase, gallery, and WhatsApp ordering functionality. Designed with modern UI, smooth scrolling, and mobile-friendly layout.</p>
+                        <div class="item-footer">
+                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="web">
+                    <div class="item-img">
+                        <img src="Screenshot 2026-03-25 111420.png" alt="Personal Portfolio Website">
+                    </div>
+                    <div class="item-content">
+                        <h3>2. Personal Portfolio Website</h3>
+                        <p>A personal developer portfolio website to showcase skills, projects, and contact information. Built with clean design, responsive layout, and interactive project sections.</p>
+                        <div class="item-footer">
+                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="design">
+                    <div class="item-img">
+                        <img src="9WEFndQziSCoQGcHZS4o1qpzKqGviJtSvQ6Bf5L_hYz7k8c-mvzzw26-Ls869-RrUov0jju0ZvPtU1Sc1_OPKI3ZXkZCeBV-zEfNXojIjEXrZxieBrfeulQ1DjBlpe55kNfGw0Ht7kJ2TQZ5ZxfIGuQj6tW3Wh3nY7NXkuYXfYA_l5y1qFaqjMs9cB2-zg9W.jfif" alt="Business Landing Page">
+                    </div>
+                    <div class="item-content">
+                        <h3>3. Business Landing Page</h3>
+                        <p>A modern business landing page designed to promote services with call-to-action sections, testimonials, and responsive layout for better user engagement.</p>
+                        <div class="item-footer">
+                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="web">
+                    <div class="item-img">
+                        <img src="MROV14Y--deJhjdYl2QYLSX7n-0ZFiRw0yX2D_r-fEuYgTF4Vn3g5vqt58CNvMwRN7IF4iZuFIoXs3HquHehTJ2Nsx_QCubx9mPMHrGJiKCvetaFcYswPY6fbrIlaM52hSxcRnsjYWoMwMdNONRdc4MyUthwEVeGfOio6-TQNIGV6xgcr62KI3g-wF_xfV5q.jfif" alt="E-commerce UI Website">
+                    </div>
+                    <div class="item-content">
+                        <h3>4. E-commerce UI Website</h3>
+                        <p>A responsive e-commerce user interface featuring product cards, categories, and add-to-cart design. Focused on modern layout and user-friendly shopping experience.</p>
+                        <div class="item-footer">
+                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="web">
+                    <div class="item-img">
+                        <img src="UfKgjeMRlPt04o7mv9BGuWgRcZlnGBIo0YV_v9_q50wWKGCf8WQfoGb_eXK-RBgIj2mQElZxdvopdHR5-OqA2eVFjjSuiwMpDEYn6oHBaPAo46H12MQg9f2acaTCJfVS_bkp6l7ULZgif1lfvm42ejRFSw2cvsddykAr0TEa8VcwRIN9U1TxGHUdVGXayGln.jfif" alt="Real Estate Website">
+                    </div>
+                    <div class="item-content">
+                        <h3>5. Real Estate Website</h3>
+                        <p>A professional real estate website with property listings, search section, and contact features. Designed to showcase properties with a clean and responsive interface.</p>
+                        <div class="item-footer">
+                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="future-projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="title-reveal">Upcoming Mobile Apps</h2>
+                <p>Innovative mobile solutions currently in development. Our next generation of app experiences coming soon.</p>
+            </div>
+            
+            <div class="future-grid stagger-child">
+                <div class="future-card">
+                    <div class="app-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>To-Do List App</h3>
+                    <p>A task management app to add, edit, and delete daily tasks. Focused on productivity and minimalist design.</p>
+                    <span class="badge-coming-soon">Coming Soon</span>
+                </div>
+
+                <div class="future-card">
+                    <div class="app-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Weather App</h3>
+                    <p>A responsive weather application using API integration to provide real-time updates and local forecasts.</p>
+                    <span class="badge-coming-soon">Coming Soon</span>
+                </div>
+
+                <div class="future-card">
+                    <div class="app-icon" style="animation-delay: 0.5s;">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Calculator App</h3>
+                    <p>A simple and interactive calculator application with advanced mathematical functions and glass UI.</p>
+                    <span class="badge-coming-soon">Coming Soon</span>
+                </div>
+
+                <div class="future-card">
+                    <div class="app-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3>Notes App</h3>
+                    <p>A notes management app with save and delete features, featuring cloud sync and categorized folders.</p>
+                    <span class="badge-coming-soon">Coming Soon</span>
+                </div>
+
+                <div class="future-card">
+                    <div class="app-icon" style="animation-delay: 1s;">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Expense Tracker</h3>
+                    <p>An app to track daily expenses with clean UI, insightful charts, and budgeting tools to save more.</p>
+                    <span class="badge-coming-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span style="font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; display: block; margin-bottom: 20px;">GILL<span style="color: var(--secondary);">SOLUTION</span></span>
+                    <p>Building the future of software, one pixel at a time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" style="grid-column: span 2; text-align: right;">
+                    <a href="contact.html" class="btn-primary">Tell Us About Your Project</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Gill Solution House. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
