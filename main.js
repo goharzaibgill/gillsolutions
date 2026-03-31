@@ -103,6 +103,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Smooth scroll behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId !== '#') {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // Enhanced fade-in animations on page load
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            element.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+
     // Portfolio Filtering with Animation
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioGrid = document.querySelector('.portfolio-grid');

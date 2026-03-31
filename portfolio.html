@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Portfolio | Gill Solution</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <title>Portfolio | Gill Solutions - Software Projects</title>
+    <meta name="description" content="Explore our portfolio of completed projects showcasing web development, mobile apps, and UI/UX designs.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         .portfolio-filters {
             display: flex;
@@ -251,102 +251,125 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">GILL<span class="logo-accent">SOLUTION</span></span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <header class="hero">
-        <div id="particles-js"></div>
-        <div class="container hero-content">
-            <h1 class="fade-in title-reveal">Premium Projects</h1>
-            <p class="fade-in">A curated selection of our high-end digital solutions and web developments.</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">GILL<span>SOLUTION</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            <a href="contact.html" class="cta-btn">Get Quote</a>
         </div>
     </header>
 
-    <section class="portfolio">
+    <!-- Portfolio Hero -->
+    <section class="hero" style="min-height: 60vh;">
         <div class="container">
-            <div class="portfolio-filters fade-in">
-                <button class="filter-btn active">All Projects</button>
-                <button class="filter-btn">Web Development</button>
-                <button class="filter-btn">UI/UX Design</button>
+            <div class="hero-content fade-in">
+                <h1>Our Portfolio</h1>
+                <p>A showcase of our best work - web applications, mobile apps, and digital solutions that drive results</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Items -->
+    <section class="services" style="padding: 80px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2>Featured Projects</h2>
+                <p style="font-size: 1.1rem; color: var(--text-light); margin-top: 15px;">Explore our completed projects that have transformed businesses and delivered measurable results</p>
             </div>
             
-            <div class="portfolio-grid stagger-child">
-                <div class="portfolio-item" data-category="web">
-                    <div class="item-img">
-                        <img src="Screenshot 2026-03-25 111342.png" alt="Restaurant Website">
+            <div class="grid-2 stagger-child" style="gap: 40px;">
+                <!-- Project 1 -->
+                <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 280px; overflow: hidden; background: #1a1a2e;">
+                        <img src="Screenshot%202026-03-25%20111342.png" alt="Restaurant Website" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="item-content">
-                        <h3>1. Restaurant Website</h3>
-                        <p>A fully responsive restaurant website featuring menu showcase, gallery, and WhatsApp ordering functionality. Designed with modern UI, smooth scrolling, and mobile-friendly layout.</p>
-                        <div class="item-footer">
-                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                    <div style="padding: 35px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <h3 style="margin-bottom: 15px;">Restaurant Website</h3>
+                        <p style="margin-bottom: 20px; flex-grow: 1;">A fully responsive restaurant website with menu showcase, image gallery, online ordering, and WhatsApp integration for seamless customer communication.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Web Design</span>
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Responsive</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="item-img">
-                        <img src="Screenshot 2026-03-25 111420.png" alt="Personal Portfolio Website">
+                <!-- Project 2 -->
+                <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 280px; overflow: hidden; background: #1a1a2e;">
+                        <img src="Screenshot%202026-03-25%20111420.png" alt="Portfolio Website" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="item-content">
-                        <h3>2. Personal Portfolio Website</h3>
-                        <p>A personal developer portfolio website to showcase skills, projects, and contact information. Built with clean design, responsive layout, and interactive project sections.</p>
-                        <div class="item-footer">
-                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                    <div style="padding: 35px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <h3 style="margin-bottom: 15px;">Personal Portfolio</h3>
+                        <p style="margin-bottom: 20px; flex-grow: 1;">A professional portfolio website showcasing development skills, projects, and experience. Built with modern design patterns and smooth animations.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">UI/UX Design</span>
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Developer</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="design">
-                    <div class="item-img">
-                        <img src="9WEFndQziSCoQGcHZS4o1qpzKqGviJtSvQ6Bf5L_hYz7k8c-mvzzw26-Ls869-RrUov0jju0ZvPtU1Sc1_OPKI3ZXkZCeBV-zEfNXojIjEXrZxieBrfeulQ1DjBlpe55kNfGw0Ht7kJ2TQZ5ZxfIGuQj6tW3Wh3nY7NXkuYXfYA_l5y1qFaqjMs9cB2-zg9W.jfif" alt="Business Landing Page">
+                <!-- Project 3 -->
+                <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 280px; overflow: hidden; background: #1a1a2e;">
+                        <img src="9WEFndQziSCoQGcHZS4o1qpzKqGviJtSvQ6Bf5L_hYz7k8c-mvzzw26-Ls869-RrUov0jju0ZvPtU1Sc1_OPKI3ZXkZCeBV-zEfNXojIjEXrZxieBrfeulQ1DjBlpe55kNfGw0Ht7kJ2TQZ5ZxfIGuQj6tW3Wh3nY7NXkuYXfYA_l5y1qFaqjMs9cB2-zg9W.jfif" alt="Business Landing" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="item-content">
-                        <h3>3. Business Landing Page</h3>
-                        <p>A modern business landing page designed to promote services with call-to-action sections, testimonials, and responsive layout for better user engagement.</p>
-                        <div class="item-footer">
-                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                    <div style="padding: 35px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <h3 style="margin-bottom: 15px;">Business Landing</h3>
+                        <p style="margin-bottom: 20px; flex-grow: 1;">A modern landing page designed to showcase business services with prominent CTAs, testimonials section, and lead capture forms.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Marketing</span>
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Conversion</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="item-img">
-                        <img src="MROV14Y--deJhjdYl2QYLSX7n-0ZFiRw0yX2D_r-fEuYgTF4Vn3g5vqt58CNvMwRN7IF4iZuFIoXs3HquHehTJ2Nsx_QCubx9mPMHrGJiKCvetaFcYswPY6fbrIlaM52hSxcRnsjYWoMwMdNONRdc4MyUthwEVeGfOio6-TQNIGV6xgcr62KI3g-wF_xfV5q.jfif" alt="E-commerce UI Website">
+                <!-- Project 4 -->
+                <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 280px; overflow: hidden; background: #1a1a2e;">
+                        <img src="MROV14Y--deJhjdYl2QYLSX7n-0ZFiRw0yX2D_r-fEuYgTF4Vn3g5vqt58CNvMwRN7IF4iZuFIoXs3HquHehTJ2Nsx_QCubx9mPMHrGJiKCvetaFcYswPY6fbrIlaM52hSxcRnsjYWoMwMdNONRdc4MyUthwEVeGfOio6-TQNIGV6xgcr62KI3g-wF_xfV5q.jfif" alt="E-commerce" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="item-content">
-                        <h3>4. E-commerce UI Website</h3>
-                        <p>A responsive e-commerce user interface featuring product cards, categories, and add-to-cart design. Focused on modern layout and user-friendly shopping experience.</p>
-                        <div class="item-footer">
-                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                    <div style="padding: 35px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <h3 style="margin-bottom: 15px;">E-commerce Platform</h3>
+                        <p style="margin-bottom: 20px; flex-grow: 1;">A full-featured e-commerce platform with product catalog, shopping cart, checkout flow, and integrated payment processing.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">E-commerce</span>
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Full Stack</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="web">
-                    <div class="item-img">
-                        <img src="UfKgjeMRlPt04o7mv9BGuWgRcZlnGBIo0YV_v9_q50wWKGCf8WQfoGb_eXK-RBgIj2mQElZxdvopdHR5-OqA2eVFjjSuiwMpDEYn6oHBaPAo46H12MQg9f2acaTCJfVS_bkp6l7ULZgif1lfvm42ejRFSw2cvsddykAr0TEa8VcwRIN9U1TxGHUdVGXayGln.jfif" alt="Real Estate Website">
+                <!-- Project 5 -->
+                <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 280px; overflow: hidden; background: #1a1a2e;">
+                        <img src="UfKgjeMRlPt04o7mv9BGuWgRcZlnGBIo0YV_v9_q50wWKGCf8WQfoGb_eXK-RBgIj2mQElZxdvopdHR5-OqA2eVFjjSuiwMpDEYn6oHBaPAo46H12MQg9f2acaTCJfVS_bkp6l7ULZgif1lfvm42ejRFSw2cvsddykAr0TEa8VcwRIN9U1TxGHUdVGXayGln.jfif" alt="Real Estate" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="item-content">
-                        <h3>5. Real Estate Website</h3>
-                        <p>A professional real estate website with property listings, search section, and contact features. Designed to showcase properties with a clean and responsive interface.</p>
-                        <div class="item-footer">
-                            <a href="#" class="view-btn">View Project <span style="font-size: 1.2rem;">→</span></a>
+                    <div style="padding: 35px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <h3 style="margin-bottom: 15px;">Real Estate Portal</h3>
+                        <p style="margin-bottom: 20px; flex-grow: 1;">A comprehensive real estate platform with property listings, advanced search, virtual tours, and agent contact management system.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Web App</span>
+                            <span style="padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--text-light);">Database</span>
                         </div>
                     </div>
                 </div>
@@ -354,89 +377,60 @@
         </div>
     </section>
 
-
-    <section class="future-projects">
+    <!-- CTA Banner -->
+    <section class="cta-banner">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="title-reveal">Upcoming Mobile Apps</h2>
-                <p>Innovative mobile solutions currently in development. Our next generation of app experiences coming soon.</p>
-            </div>
-            
-            <div class="future-grid stagger-child">
-                <div class="future-card">
-                    <div class="app-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>To-Do List App</h3>
-                    <p>A task management app to add, edit, and delete daily tasks. Focused on productivity and minimalist design.</p>
-                    <span class="badge-coming-soon">Coming Soon</span>
-                </div>
-
-                <div class="future-card">
-                    <div class="app-icon">
-                        <i class="fas fa-cloud-sun"></i>
-                    </div>
-                    <h3>Weather App</h3>
-                    <p>A responsive weather application using API integration to provide real-time updates and local forecasts.</p>
-                    <span class="badge-coming-soon">Coming Soon</span>
-                </div>
-
-                <div class="future-card">
-                    <div class="app-icon" style="animation-delay: 0.5s;">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Calculator App</h3>
-                    <p>A simple and interactive calculator application with advanced mathematical functions and glass UI.</p>
-                    <span class="badge-coming-soon">Coming Soon</span>
-                </div>
-
-                <div class="future-card">
-                    <div class="app-icon">
-                        <i class="fas fa-sticky-note"></i>
-                    </div>
-                    <h3>Notes App</h3>
-                    <p>A notes management app with save and delete features, featuring cloud sync and categorized folders.</p>
-                    <span class="badge-coming-soon">Coming Soon</span>
-                </div>
-
-                <div class="future-card">
-                    <div class="app-icon" style="animation-delay: 1s;">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <h3>Expense Tracker</h3>
-                    <p>An app to track daily expenses with clean UI, insightful charts, and budgeting tools to save more.</p>
-                    <span class="badge-coming-soon">Coming Soon</span>
-                </div>
-            </div>
+            <h2>Interested in Your Own Project?</h2>
+            <p>Let's work together to bring your vision to life with cutting-edge technology and design</p>
+            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-col">
-                    <span style="font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; display: block; margin-bottom: 20px;">GILL<span style="color: var(--secondary);">SOLUTION</span></span>
-                    <p>Building the future of software, one pixel at a time.</p>
+                    <h4>About Gill Solutions</h4>
+                    <p style="color: var(--text-light); margin-top: 15px;">We create innovative software solutions that help businesses grow and succeed in the digital world.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col" style="grid-column: span 2; text-align: right;">
-                    <a href="contact.html" class="btn-primary">Tell Us About Your Project</a>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="">Web Development</a></li>
+                        <li><a href="">Mobile Apps</a></li>
+                        <li><a href="">Cloud Solutions</a></li>
+                        <li><a href="">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><a href="mailto:info@gillsolutions.com">info@gillsolutions.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>123 Tech Street, Silicon Valley, CA</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 Gill Solution House. All rights reserved.
+                <p>&copy; 2026 Gill Solutions. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">💬</a>
+    <button id="scrollTopBtn" class="scroll-to-top">↑</button>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
